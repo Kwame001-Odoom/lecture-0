@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block title%}|| Form ||{%endblock%}
+{%block body%}
+<div class="col-md-6" style="margin: 0 auto;">
+    {% if success == True%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top : 1rem;">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {%elif error == True%}
+    {%for error in errors%}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top : 1rem;">
+        <strong>{{error}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {%endfor%}
+    {%endif%}
+<form method="POST">
+    <p class="text-muted">Note: * Title Should be Capital.</p>
+    {%csrf_token%}
+    {{form.as_ul}}
+    <button type="submit" class="btn btn-primary" style="margin: 1rem auto 1rem auto;display : block;">Submit</button>
+</form>
+</div>
+{%endblock%}

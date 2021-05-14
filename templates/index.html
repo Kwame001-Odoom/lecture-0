@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%block title%} SAJAT | Home {%endblock%}
+{%block body%}
+<h3>
+    This is an illustration of a project.
+</h3>
+<h2>Displaying messages in order
+</h2>
+{%for text in msgs%}
+<ul>
+    <li>
+        <h2>{{text}}</h2>
+    </li>
+</ul>
+{%endfor%}
+{%endblock%}
